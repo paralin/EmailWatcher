@@ -84,7 +84,7 @@ func (ew *EmailWatcher) updateOnce() error {
 					}
 					msg.ParsedHeader.Body = io.Reader(bytes.NewReader(body))
 					ew.clientLock.Lock()
-					handler.ProcessMessage(msg.ParsedHeader, ew.imapClient)
+					handler.ProcessMessage(msg.ParsedHeader, msg.Uid, ew.imapClient)
 					ew.clientLock.Unlock()
 					break
 				}

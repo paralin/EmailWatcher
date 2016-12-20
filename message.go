@@ -12,7 +12,7 @@ type MessageMatcher interface {
 	HeaderMatches(head *mail.Header) bool
 
 	// Process the message.
-	ProcessMessage(message *mail.Message, client *imap.Client)
+	ProcessMessage(message *mail.Message, uid uint32, client *imap.Client)
 }
 
 func (ew *EmailWatcher) fetchMessageBody(uid uint32) ([]byte, error) {
